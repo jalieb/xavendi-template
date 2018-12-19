@@ -1,0 +1,21 @@
+//
+// Media Query
+//
+
+@mixin media-up($min-device) {
+  @media all and (min-width: map-get(map-get($breakpoints, $min-device), min)) {
+    @content
+  }
+}
+
+@mixin media-down($max-device) {
+  @media all and (min-width: map-get(map-get($breakpoints, $max-device), min)) {
+    @content
+  }
+}
+
+@mixin media-only($min-device, $max-device) {
+  @media all and (min-width: map-get(map-get($breakpoints, $min-device), min)) and (max-width: map-get(map-get($breakpoints, $max-device), max) - 1) {
+    @content
+  }
+}
